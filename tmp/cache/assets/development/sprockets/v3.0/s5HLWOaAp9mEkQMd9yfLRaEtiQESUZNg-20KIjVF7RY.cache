@@ -1,0 +1,31 @@
+I"(function() {
+  $(document).ready(function() {
+    var ctrl;
+    ctrl = {
+      isLoading: false,
+      isLoaded: false,
+      content: null,
+      load: function() {
+        ctrl.isLoading = true;
+        return $.get('/top_players/index', function(data) {
+          console.log(data);
+          ctrl.isLoading = false;
+          ctrl.isLoaded = true;
+          return ctrl.content = data;
+        });
+      }
+    };
+    return $('#top-players-container').on('hover', function() {
+      console.log('hover');
+      if (!ctrl.isLoaded) {
+        return ctrl.load().then(function() {
+          return $('#top-players-container').addClass('open');
+        });
+      } else {
+        return $('#top-players-container').addClass('open');
+      }
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,36 @@
+.players-wrapper
+  .weapon-1
+  .weapon-2
+  .weapon-3
+
+  .close-btn#close-btn
+
+  h1.players-header
+    | Top Players
+    .players-header__border
+
+  table.table.table-responsive.players
+    tr.players__thead
+      td.players__cell
+        | №
+      td.players__cell
+        | PLAYER
+      td.players__cell
+        | PLAYER
+      td.players__cell
+        | TOTAL WIN
+    = render partial: "player", collection: @players
+
+  .players-footer
+    ul.nav.nav-pills.players-footer__nav
+      li
+        a href='#' FAQ
+      li
+        a href='#' Support
+      li
+        a href='#' Contact
+      li
+        a href='#' Terms
+    .players-footer__state
+      i.fa.fa-circle.players-footer__state__icon
+      | Some Steam servise are down

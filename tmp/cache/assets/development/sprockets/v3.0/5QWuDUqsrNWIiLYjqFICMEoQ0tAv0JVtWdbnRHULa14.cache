@@ -1,0 +1,65 @@
+I"K(function() {
+  $(document).ready(function() {
+    var ctrl;
+    ctrl = {
+      shadowId: '#shadow',
+      shadow: null,
+      containerId: '#top-players-container',
+      container: null,
+      closeBtnId: '#close-btn',
+      closeBtn: null,
+      hover: 'mouseenter',
+      animationDuration: 300,
+      isLoading: false,
+      isLoaded: false,
+      content: null,
+      init: function() {
+        ctrl.container = $(ctrl.containerId);
+        return ctrl.container.on('mouseenter', ctrl.open);
+      },
+      open: function() {
+        ctrl.container.off('mouseenter');
+        ctrl.shadow || (ctrl.shadow = $(ctrl.shadowId));
+        ctrl.shadow.addClass('on');
+        if (!ctrl.isLoaded) {
+          return ctrl.load().then(function(data) {
+            ctrl.container.html(ctrl.content);
+            ctrl.animate();
+            return ctrl._bindClose();
+          });
+        } else {
+          ctrl.animate();
+          return ctrl._bindClose();
+        }
+      },
+      close: function() {
+        ctrl._unbindClose();
+        ctrl.container.on('mouseenter', ctrl.open);
+        ctrl.container.removeClass('open');
+        return ctrl.shadow.removeClass('on');
+      },
+      load: function() {
+        ctrl.isLoading = true;
+        return $.get('/top_players/index', function(data) {
+          ctrl.isLoading = false;
+          ctrl.isLoaded = true;
+          return ctrl.content = data;
+        });
+      },
+      animate: function() {
+        return ctrl.container.addClass('open', 1000, "easeInQuad");
+      },
+      _bindClose: function() {
+        var ref;
+        ctrl.closeBtn || (ctrl.closeBtn = $(ctrl.closeBtnId));
+        return (ref = ctrl.closeBtn) != null ? ref.on('click', ctrl.close) : void 0;
+      },
+      _unbindClose: function() {
+        return ctrl.closeBtn.off('click');
+      }
+    };
+    return ctrl.init();
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,31 @@
+// Place all the styles related to the index controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.shadow.on {
+  opacity: 0.6;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left:0;
+}
+
+.top-players-container {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width:0;
+  height: 100%;
+  padding-left: 50px;
+  width: 100%;
+  max-width: 0;
+
+  &.open {
+    padding-left: 0;
+  }
+}

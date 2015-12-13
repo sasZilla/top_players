@@ -1,0 +1,222 @@
+// Place all the styles related to the top_players controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$white_color: #FFF;
+$grey_color: #8A9499;
+$line_color: #E8EAEB;
+$green_color: #80B329;
+$orange_color: #E6A227;
+
+.grey {
+  color: $grey_color;
+}
+
+.bg-z-index {
+  z-index: 0;
+}
+
+.content-z-index {
+  z-index: 1;
+  position: relative;
+}
+
+.players-wrapper {
+  background-color: $white_color;
+  background-image: url(bg-image.png);
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 620px;
+  padding: 200px 50px 0;
+  position: relative;
+  min-width: 300px;
+}
+
+.weapon-1 {
+  @extend .bg-z-index;
+  width: 165px;
+  height: 113px;
+  background-image: url(weapon_1.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 440px;
+  right: 0;
+}
+.weapon-2 {
+  @extend .bg-z-index;
+  width: 196px;
+  height: 96px;
+  background-image: url(weapon_2.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 680px;
+  left: 0;
+}
+.weapon-3 {
+  @extend .bg-z-index;
+  width: 183px;
+  height: 110px;
+  background-image: url(weapon_3.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+}
+
+.close-btn {
+  background-image: url(ic-close.png);
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  top: 17px;
+  right: 17px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.players-header {
+  @extend .content-z-index;
+  font-size: 48px;
+  height: 96px;
+  margin: 0 0 50px;
+  position: relative;
+}
+
+.players-header__border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: #000;
+}
+
+.players {
+  @extend .content-z-index;
+  font-size: 14px;
+  margin-bottom: 55px;
+  border: none;
+}
+
+.players__thead {
+  @extend .grey;
+  font-size: 12px;
+}
+
+.players__cell--wide {
+  width: 275px;
+}
+
+.players__cell--small {
+  width: 100px;
+}
+
+.table > tbody > tr > td.players__cell {
+  vertical-align: middle;
+  border-top: none;
+  border-bottom: 1px solid $line_color;
+}
+
+.table > tbody > tr:first-child > td.players__cell {
+  border-top: none;
+  border-bottom: none;
+}
+
+.table > tbody > tr:last-child > td.players__cell {
+  border-bottom: none;
+}
+
+.players__cell__item {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.players__cell__money {
+  display: inline-block;
+  color: $green_color;
+  padding-left: 20px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAnFBMVEUAAACAgABmmQCAqgB2sSeApCR3qiKAqhyAsyaAriN6rSl8riWAsCR9siSAril9sCh9sSd+sSl+syd+syl+simAsyh/sieAsymAsiiAsSiAsyh/sieAsyiAsil/siiAsyh/symAsyh/siiAsyh/syh/siiAsil/syh/simAsih/simAsyh/siiAsyiAsih/sil/simAsiiAsiiAsymk/071AAAAM3RSTlMABAUGDQ4PEhQWGSkqKywtO0tha3Fyj5CSlJqboKKlrrW4vb7Fzc7T1d7h5OXq7PP1/P35yBemAAAAlElEQVR42mVP2RLCIBBLqdYT76Ko1VovPNHy///mhJ3xpXkg2Sx7gdDGee+MhiC1dYiobRrjisFtx7eiY6m+m8mHbIER/z8HQHZklcaSiRz2pMZUBo40RxmKFZWDJ12zZOYC4WmwSd5WhRgxsd2HV6cfS6TpUJ0f3R6VkbGHFpCsZaws9l5M72T7X/1SyurN4xrn/wCWlCEH+L6K9AAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat;
+  background-position-x: 0px;
+  background-position-y: 50%;
+}
+
+.players-footer {
+  @extend .content-z-index;
+  position: relative;
+  border-top: 1px solid $line_color;
+}
+
+.players-footer__nav {
+  li > a {
+    color: $grey_color;
+    font-size: 12px;
+    padding: 20px 10px;
+  }
+}
+
+.players-footer__state {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  font-size: 13px;
+  color: $orange_color;
+  padding-left: 10px;
+}
+
+.players-footer__state__icon {
+  font-size: 8px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -4px;
+}
+
+@media (max-width: 620px) {
+  .players {
+    border: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .players-wrapper {
+    background-size: contain;
+  }
+
+  .close-btn {
+    right: 10px;
+    top: 10px;
+  }
+
+  .players {
+    border: none;
+  }
+
+  .players-wrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .table > tbody > tr > td.players__cell {
+    vertical-align: middle;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid $line_color;
+  }
+
+  .table > tbody > tr:first-child > td.players__cell {
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .table > tbody > tr:last-child > td.players__cell {
+    border-bottom: none;
+  }
+
+  .players-footer__nav {
+    width: 40%;
+  }
+}

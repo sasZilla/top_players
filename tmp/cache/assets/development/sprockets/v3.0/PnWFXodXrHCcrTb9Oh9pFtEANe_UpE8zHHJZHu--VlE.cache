@@ -1,0 +1,57 @@
+I"n(function() {
+  $(document).ready(function() {
+    var ctrl;
+    ctrl = {
+      shadowId: '#shadow',
+      shadow: null,
+      containerId: '#top-players-container',
+      container: null,
+      closeBtnId: '#close-btn',
+      closeBtn: null,
+      hover: 'mouseenter',
+      animationDuration: 300,
+      isLoading: false,
+      isLoaded: false,
+      content: null,
+      init: function() {
+        ctrl.container = $(ctrl.containerId);
+        return ctrl.container.on('mouseenter', ctrl.open);
+      },
+      open: function() {
+        ctrl.container.off('mouseenter');
+        ctrl.shadow || (ctrl.shadow = $(ctrl.shadowId));
+        ctrl.shadow.addClass('on');
+        if (!ctrl.isLoaded) {
+          return ctrl.load().then(function(data) {
+            ctrl.container.html(ctrl.content);
+            ctrl.animate();
+            ctrl.closeBtn || (ctrl.closeBtn = $(ctrl.closeBtnId));
+            return ctrl.closeBtn.on('click', ctrl.close);
+          });
+        } else {
+          return ctrl.animate();
+        }
+      },
+      close: function() {
+        ctrl.closeBtn.off('click');
+        ctrl.container.on('mouseenter', ctrl.open);
+        ctrl.container.removeClass('open');
+        return ctrl.shadow.removeClass('on');
+      },
+      load: function() {
+        ctrl.isLoading = true;
+        return $.get('/top_players/index', function(data) {
+          ctrl.isLoading = false;
+          ctrl.isLoaded = true;
+          return ctrl.content = data;
+        });
+      },
+      animate: function() {
+        return ctrl.container.addClass('open', ctrl.animationDuration);
+      }
+    };
+    return ctrl.init();
+  });
+
+}).call(this);
+:ET
