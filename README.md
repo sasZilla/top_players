@@ -6,15 +6,16 @@ You should have installed: ruby, git
 
 Download repository to your working directory:
 
-git clone https://github.com/sasZilla/top-players.git
+git clone https://github.com/sasZilla/top_players.git
 
 Follow steps to run app:
 
 1. cd top-players
-2. bundle install
-3. rake db:migrate
-4. rake db:seed
-5. rails s
+2. git checkout develop
+3. bundle install
+4. rake db:migrate
+5. rake db:seed
+6. rails s
 
 Open localhost:3000 in chrome
 
