@@ -23,7 +23,7 @@ $orange_color: #E6A227;
 
 .players-wrapper {
   background-color: $white_color;
-  background-image: url(bg-image.png);
+  background-image: url(asset_path('bg-image.png'));
   background-repeat: no-repeat;
   width: 100%;
   max-width: 620px;
@@ -36,7 +36,7 @@ $orange_color: #E6A227;
   @extend .bg-z-index;
   width: 165px;
   height: 113px;
-  background-image: url(weapon_1.png);
+  background-image: url(asset_path('weapon_1.png'));
   background-repeat: no-repeat;
   position: absolute;
   top: 440px;
@@ -46,7 +46,7 @@ $orange_color: #E6A227;
   @extend .bg-z-index;
   width: 196px;
   height: 96px;
-  background-image: url(weapon_2.png);
+  background-image: url(asset_path('weapon_2.png'));
   background-repeat: no-repeat;
   position: absolute;
   top: 680px;
@@ -56,7 +56,7 @@ $orange_color: #E6A227;
   @extend .bg-z-index;
   width: 183px;
   height: 110px;
-  background-image: url(weapon_3.png);
+  background-image: url(asset_path('weapon_3.png'));
   background-repeat: no-repeat;
   position: absolute;
   bottom: 40px;
@@ -64,7 +64,7 @@ $orange_color: #E6A227;
 }
 
 .close-btn {
-  background-image: url(ic-close.png);
+  background-image: url(asset_path('ic-close.png'));
   background-repeat: no-repeat;
   width: 23px;
   height: 23px;
