@@ -1,0 +1,14 @@
+tr
+  td.players__cell
+    span.grey
+      = player.id
+  td.players__cell.players__cell--wide
+    .players__cell__item
+      img src== player.img
+    .players__cell__item
+      = player.name
+  td.players__cell.players__cell--small
+    = player.played
+  td.players__cell
+    .players__cell__money
+      = player.total_win
